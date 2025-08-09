@@ -1,12 +1,12 @@
-import Image from "next/image";
-import Scene from "@/components/three/Scene";
+import Portfolio from '@/components/three/Portfolio'
+import { Suspense } from 'react';
 
 export default function HomePage() {
-  return (
-    <main>
-      <h1 className="text-3xl font-bold mb-6">Welcome to My Portfolio</h1>
-      <Scene />
-      {/* Add About, Projects, Contact sections here */}
-    </main>
-  );
+	return (
+		<Suspense fallback={null}>
+			<div className='h-screen w-screen'>	<main className='h-full w-full'>
+				<Portfolio />
+			</main></div>
+		</Suspense>
+	);
 }
