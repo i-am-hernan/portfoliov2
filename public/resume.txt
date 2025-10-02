@@ -1,0 +1,33 @@
+﻿HERNAN CHALCO
+San Jose, CA 95112
+hernan.s.chalco@gmail.com
+https://www.linkedin.com/in/hernanchalco
+https://github.com/i-am-hernan
+https://www.iamhernan.com
+EXPERIENCE
+Adyen – Senior Implementation Engineer
+February 2025 – Present
+- Lead engineer for internal and external tooling focused on eCommerce payment integrations.
+- Maintain and improve developer experience for client-facing tools and documentation.
+Adyen – Implementation Engineer
+October 2021 – February 2025
+- Lead developer of checkoutlab.dev, an online sandbox that accelerates Adyen eCommerce web integrations; reduced team workload by over 100 hours per month.
+- Provided technical consulting for enterprise clients (including Fortune 500), delivering custom-tailored solutions and resolving integration roadblocks.
+Quantum Metric – Engineer, Customer Success
+March 2020 – September 2021
+- Built custom JavaScript-based analytics tooling for high-profile clients, enabling real-time business insight generation.
+- Integrated third-party AI tools including Qualtrics and Dynatrace to enhance operational capabilities.
+HCL Technologies – Software Engineer
+October 2018 – March 2020
+- Developed automated system-health checks to reduce unplanned downtime; cut manual QA time by 70 hours per month.
+PROJECTS
+checkoutlab.dev – Rapid prototyping sandbox for Adyen payment flows.
+Stack: TypeScript, React, Next.js, Tailwind
+sdkexplorer.com – Tool for browsing Adyen Web SDK configuration options.
+Stack: TypeScript, React, Node.js, Material UI
+EDUCATION
+University of California, Berkeley
+Bachelor of Arts in Mathematics, 2017
+SKILLS
+Languages: JavaScript, TypeScript, Python, C++, HTML, CSS, SQL, NoSQL, Spanish
+Frameworks & Tools: React, Node.js, Next.js, Vercel, MongoDB, PostgreSQL, Docker, Shadcn/UI
