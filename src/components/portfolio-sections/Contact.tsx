@@ -1,4 +1,4 @@
-export default function ContactSection() {
+export const Contact = () => {
   return (
     <div className="absolute right-[12vw] top-[380vh] max-w-[60ch]">
       <h2 className="m-0 text-2xl">Let’s talk</h2>

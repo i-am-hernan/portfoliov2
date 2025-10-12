@@ -1,4 +1,4 @@
-export default function ProjectsSection() {
+export const Projects = () => {
   return (
     <div className="absolute left-[10vw] top-[280vh] max-w-[70ch]">
       <h2 className="m-0 text-2xl">Projects</h2>
