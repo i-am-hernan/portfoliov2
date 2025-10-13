@@ -1,17 +1,5 @@
-"use client";
-import { About, Contact, Hero, Projects } from '@/components/portfolio-sections';
-import { Item } from '@/components/three/Item';
-import { Scroll, ScrollControls } from "@react-three/drei";
-import { Canvas, useThree } from "@react-three/fiber";
-
-export const Portfolio = () => {
-  return (
-    < Canvas orthographic camera={{ zoom: 80 }
-    } gl={{ alpha: false, antialias: false, stencil: false, depth: false }} dpr={[1, 1.5]} >
-      <color attach="background" args={['#0e0e12']} />
-      <ScrollControls pages={5}>
-        <Scroll>
-          {/* Shift the initial images to the right and slightly lower to clear hero */}
+export const Items = () => {
+  return ()
           <Item url="/1.jpg" scale={[w / 3.2, w / 3.2]} position={[w / 4, -h * 0.15, 0]} />
           <Item url="/2.jpg" scale={[2, w / 3]} position={[w / 10, -h, 0]} />
           <Item url="/3.jpg" scale={[w / 3, w / 5]} position={[-w / 5, -h * 1, 0]} />
@@ -21,13 +9,4 @@ export const Portfolio = () => {
           <Item url="/7.jpg" scale={[w / 3, w / 5]} position={[-w / 4, -h * 2.6, 0]} />
           <Item url="/8.jpg" scale={[w / 2, w / 2]} position={[w / 4, -h * 3.1, 0]} />
           <Item url="/12.jpg" scale={[w / 2.5, w / 2]} position={[-w / 6, -h * 4.1, 0]} />
-        </Scroll>
-        <Hero />
-        <About />
-        <Projects />
-        <Contact />
-      </ScrollControls>
-    </Canvas >
-  )
 }
-

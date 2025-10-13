@@ -1,12 +1,17 @@
 
 "use client";
-import * as THREE from "three";
+import { Image, useIntersect } from "@react-three/drei";
+import { useFrame, useThree } from "@react-three/fiber";
 import { useRef, useState } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { useIntersect, Image, ScrollControls, Scroll } from "@react-three/drei";
+import * as THREE from "three";
 
+interface ItemProps {
+  url: string;
+  scale: [number, number];
+  position?: [number, number, number];
+}
 
-const Item = ({ url, scale, ...props }: ItemProps) => {
+export const Item = ({ url, scale, ...props }: ItemProps) => {
   const visible = useRef(false)
   const [hovered, hover] = useState(false)
   const ref = useIntersect<THREE.Mesh>((isVisible: boolean) => (visible.current = isVisible))
