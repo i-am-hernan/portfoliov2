@@ -1,7 +1,7 @@
 export const Hero = () => {
   return (
     <div
-      className="w-[100%] text-center lg:mt-[15vh] mt-[25vh] select-none"
+      className="w-[100%] text-center lg:mt-[15vh] mt-[25vh] select-none text-background"
       style={{ pointerEvents: 'auto' }}
     >
       <span>
