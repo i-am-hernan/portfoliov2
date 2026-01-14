@@ -6,6 +6,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { GoldenGateBridge } from '@/components/three/scenes/golden-gate-bridge/GoldenGateBridge';
 import { SanFranciscoSky } from '../three/scenes/sky';
 import { ScrollProgressBar } from './ScrollProgress';
+import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing';
 
 const ScrollingCamera = () => {
   const scroll = useScroll();
@@ -73,18 +74,46 @@ export const Portfolio = () => {
       <NavigateBar />
       <Canvas
         camera={{ position: [0, 50, 100], fov: 75 }}
-        gl={{ antialias: true }}
+        gl={{ antialias: true, toneMapping: 4 }} // ACESFilmicToneMapping
         dpr={[1, 1.5]}
         style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}
       >
         <ScrollControls pages={4.5} damping={0.1}>
-          <ambientLight intensity={1} />
-          <directionalLight position={[10, 10, 5]} intensity={1} />
+          {/* Daytime lighting setup */}
+          <ambientLight intensity={0.6} color="#ffffff" />
+          {/* Sunlight */}
+          <directionalLight
+            position={[100, 150, 50]}
+            intensity={1.5}
+            color="#fff5e6"
+            castShadow
+          />
+          {/* Sky light from above */}
+          <hemisphereLight
+            color="#87CEEB"
+            groundColor="#8B7355"
+            intensity={0.8}
+          />
+          {/* Fill light */}
+          <directionalLight
+            position={[-50, 30, -30]}
+            intensity={0.3}
+            color="#b4d4e8"
+          />
           <GoldenGateBridge />
           <SanFranciscoSky />
           <ScrollingCamera />
           <HtmlContainer />
           <Preload all />
+          {/* Post-processing for cinematic look */}
+          <EffectComposer>
+            <Bloom
+              intensity={0.2}
+              luminanceThreshold={0.9}
+              luminanceSmoothing={0.9}
+            />
+            <Vignette darkness={0.3} offset={0.5} />
+          </EffectComposer>
         </ScrollControls>
       </Canvas>
     </>
