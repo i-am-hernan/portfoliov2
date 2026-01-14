@@ -1,13 +1,5 @@
-import { Portfolio } from '@/components/custom/Portfolio'
-import { Suspense } from 'react';
+import { PageWrapper } from '@/components/custom/PageWrapper'
 
 export default function HomePage() {
-  return (
-    <Suspense fallback={null}>
-      <div className='h-screen w-screen'>
-        <main className='h-full w-full'>
-          <Portfolio />
-        </main></div>
-    </Suspense>
-  );
+  return <PageWrapper />;
 }

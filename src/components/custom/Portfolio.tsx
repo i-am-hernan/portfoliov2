@@ -1,10 +1,11 @@
 "use client";
 import { About, Contact, Hero, Projects } from '@/components/custom/portfolio-sections';
 import { NavigateBar } from '@/components/custom/nav/NavigateBar';
-import { Scroll, ScrollControls, useScroll } from "@react-three/drei";
+import { Scroll, ScrollControls, useScroll, Preload } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { GoldenGateBridge } from '@/components/three/scenes/golden-gate-bridge/GoldenGateBridge';
 import { SanFranciscoSky } from '../three/scenes/sky';
+import { ScrollProgressBar } from './ScrollProgress';
 
 const ScrollingCamera = () => {
   const scroll = useScroll();
@@ -18,7 +19,7 @@ const ScrollingCamera = () => {
     const rotationAmount = (11 * Math.PI / 12); // 3/2 * PI rotation (270 degrees)
 
     // Split scroll into two phases
-    const rotationPhase = 0.3; // First 60% of scroll is rotation
+    const rotationPhase = 0.3; // First 30% of scroll is rotation
 
     if (offset < rotationPhase) {
       // Phase 1: Rotate around the model
@@ -68,6 +69,7 @@ const HtmlContainer = () => {
 export const Portfolio = () => {
   return (
     <>
+      <ScrollProgressBar />
       <NavigateBar />
       <Canvas
         camera={{ position: [0, 50, 100], fov: 75 }}
@@ -75,13 +77,14 @@ export const Portfolio = () => {
         dpr={[1, 1.5]}
         style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}
       >
-        <ScrollControls pages={3} damping={0.1}>
+        <ScrollControls pages={4.5} damping={0.1}>
           <ambientLight intensity={1} />
           <directionalLight position={[10, 10, 5]} intensity={1} />
           <GoldenGateBridge />
           <SanFranciscoSky />
           <ScrollingCamera />
           <HtmlContainer />
+          <Preload all />
         </ScrollControls>
       </Canvas>
     </>

@@ -1,36 +1,53 @@
-export const Projects = () => {
+import { memo } from "react"
+import { ProjectCard } from "./ProjectCard"
+import { AnimatedSection } from "@/components/custom/AnimatedSection"
+
+const projects = [
+  {
+    title: "checkoutlab.dev",
+    href: "https://checkoutlab.dev",
+    description: "Rapid prototyping sandbox for Adyen payment flows.",
+    technologies: ["TypeScript", "React", "Next.js", "Tailwind"],
+    image: "/img/dev-illustration.png",
+  },
+  {
+    title: "sdkexplorer.com",
+    href: "https://sdkexplorer.com",
+    description: "Browse Adyen Web SDK configuration options.",
+    technologies: ["TypeScript", "React", "Node.js", "Material UI"],
+    image: "/img/dev-illustration.png",
+  },
+]
+
+export const Projects = memo(() => {
   return (
-    <div className="absolute left-[10vw] top-[280vh] max-w-[70ch]">
-      <h2 className="m-0 text-2xl">Projects</h2>
-      <ul className="mt-3 list-none p-0 text-[1.05rem]">
-        <li className="mb-3">
-          <a
-            href="https://checkoutlab.dev"
-            target="_blank"
-            rel="noreferrer"
-            className="font-semibold underline-offset-4 hover:underline"
+    <div
+      className="absolute left-6 right-6 lg:left-[calc((100vw-80rem)/2)] lg:right-[calc((100vw-80rem)/2)] top-[250vh]"
+      style={{ pointerEvents: 'auto' }}
+    >
+      <AnimatedSection direction="up">
+        <h2 className="m-0 text-2xl font-bold text-white mb-6 drop-shadow-md">
+          Projects
+        </h2>
+      </AnimatedSection>
+      <div className="flex flex-col gap-6">
+        {projects.map((project, index) => (
+          <div
+            key={project.title}
+            className={`flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
           >
-            checkoutlab.dev
-          </a>
-          <span className="opacity-85"> — Rapid prototyping sandbox for Adyen payment flows.</span>
-          <br />
-          <span className="text-sm opacity-70">TypeScript · React · Next.js · Tailwind</span>
-        </li>
-        <li>
-          <a
-            href="https://sdkexplorer.com"
-            target="_blank"
-            rel="noreferrer"
-            className="font-semibold underline-offset-4 hover:underline"
-          >
-            sdkexplorer.com
-          </a>
-          <span className="opacity-85"> — Browse Adyen Web SDK configuration options.</span>
-          <br />
-          <span className="text-sm opacity-70">TypeScript · React · Node.js · Material UI</span>
-        </li>
-      </ul>
+            <AnimatedSection
+              direction={index % 2 === 0 ? "left" : "right"}
+              delay={index * 150}
+              className="w-full lg:w-[40vw]"
+            >
+              <ProjectCard {...project} />
+            </AnimatedSection>
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
+});
 
+Projects.displayName = "Projects";
