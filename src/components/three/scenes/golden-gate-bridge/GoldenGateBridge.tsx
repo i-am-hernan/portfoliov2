@@ -1,11 +1,18 @@
 "use client";
 import { useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js'
 import { useEffect, useMemo } from 'react'
 import * as THREE from 'three'
 
+// Create DRACOLoader instance
+const dracoLoader = new DRACOLoader()
+dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/')
+
 export const GoldenGateBridge = () => {
-  const gltf = useLoader(GLTFLoader, 'models/golden-gate-bridge/scene.gltf')
+  const gltf = useLoader(GLTFLoader, '/models/golden-gate-bridge/scene-transformed.glb', (loader) => {
+    loader.setDRACOLoader(dracoLoader)
+  })
 
   // Bridge: Dark crimson with subtle emissive glow
   const bridgeMaterial = useMemo(() => {
