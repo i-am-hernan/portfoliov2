@@ -25,9 +25,9 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Hernan Chalco — Senior Implementation Engineer",
+  title: "Hernan Chalco",
   description:
-    "Senior Implementation Engineer at Adyen. Building developer tooling for eCommerce payment integrations. Projects: checkoutlab.dev, sdkexplorer.com.",
+    "Senior Implementation Engineer at Adyen. Helping large enterprise clients integrate and optimize their payment solutions.",
   icons: {
     icon: "/icons/golden-gate-bridge-2.svg",
   },
