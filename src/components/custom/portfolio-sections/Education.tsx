@@ -7,7 +7,7 @@ import Image from "next/image"
 export const Education = memo(() => {
   return (
     <SectionWrapper
-      className="absolute left-6 lg:left-[calc((100vw-80rem)/2)] top-[745vh] lg:top-[385vh] w-[calc(100vw-3rem)] lg:w-[45vw]"
+      className="absolute left-6 lg:left-[calc((100vw-80rem)/2)] top-[745vh] lg:top-[475vh] w-[calc(100vw-3rem)] lg:w-[45vw]"
     >
       <AnimatedSection direction="left">
         <GlassCard className="p-0 overflow-hidden">

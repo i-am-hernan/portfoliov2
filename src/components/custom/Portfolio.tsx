@@ -1,5 +1,5 @@
 "use client";
-import { About, CableDivider, Contact, Education, Hero, Projects } from '@/components/custom/portfolio-sections';
+import { About, CableDivider, Contact, Education, Experience, Hero, Projects } from '@/components/custom/portfolio-sections';
 import { NavigateBar } from '@/components/custom/nav/NavigateBar';
 import { Scroll, ScrollControls, useScroll, Preload } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
@@ -75,12 +75,14 @@ const HtmlContainer = () => {
 
       {/* Cable dividers - viewport-width, always centered */}
       <CableDivider number="01" label="About" topMobile="100vh" topDesktop="100vh" />
-      <CableDivider number="02" label="Work" topMobile="320vh" topDesktop="210vh" />
-      <CableDivider number="03" label="Education" topMobile="720vh" topDesktop="370vh" />
-      <CableDivider number="04" label="Contact" topMobile="850vh" topDesktop="450vh" />
+      <CableDivider number="02" label="Experience" topMobile="280vh" topDesktop="175vh" />
+      <CableDivider number="03" label="Open Source" topMobile="470vh" topDesktop="295vh" />
+      <CableDivider number="04" label="Education" topMobile="720vh" topDesktop="460vh" />
+      <CableDivider number="05" label="Contact" topMobile="870vh" topDesktop="540vh" />
 
       {/* Section content */}
       <About />
+      <Experience />
       <Projects />
       <Education />
       <Contact />
@@ -100,7 +102,7 @@ export const Portfolio = () => {
         dpr={[1, 1.5]}
         style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}
       >
-        <ScrollControls pages={isMobile ? 10.5 : 5.5} damping={0.1}>
+        <ScrollControls pages={isMobile ? 10 : 6} damping={0.1}>
           {/* Nighttime lighting setup */}
 
           {/* Moonlight */}

@@ -8,7 +8,7 @@ import { Mail } from "lucide-react"
 export const Contact = memo(() => {
   return (
     <SectionWrapper
-      className="absolute left-1/2 -translate-x-1/2 top-[875vh] lg:top-[465vh] w-[calc(100vw-3rem)] lg:w-[40vw] text-center"
+      className="absolute left-1/2 -translate-x-1/2 top-[895vh] lg:top-[555vh] w-[calc(100vw-3rem)] lg:w-[40vw] text-center"
     >
       <AnimatedSection direction="up">
         <GlassCard variant="prominent">

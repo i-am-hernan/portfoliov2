@@ -20,7 +20,7 @@ const technologies = [
 export const About = memo(() => {
   return (
     <SectionWrapper
-      className="absolute left-6 lg:left-[calc((100vw-80rem)/2)] top-[120vh] lg:top-[115vh] w-[calc(100vw-3rem)] lg:w-[55vw]"
+      className="absolute left-6 lg:left-[calc((100vw-80rem)/2)] top-[120vh] lg:top-[112vh] w-[calc(100vw-3rem)] lg:w-[55vw]"
     >
       <AnimatedSection direction="left">
         <GlassCard className="p-0 overflow-hidden">

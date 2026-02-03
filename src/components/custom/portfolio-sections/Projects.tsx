@@ -30,13 +30,13 @@ const projects = [
 export const Projects = memo(() => {
   return (
     <SectionWrapper
-      className="absolute left-6 right-6 lg:left-[calc((100vw-80rem)/2)] lg:right-[calc((100vw-80rem)/2)] top-[345vh] lg:top-[225vh]"
+      className="absolute left-6 right-6 lg:left-[calc((100vw-80rem)/2)] lg:right-[calc((100vw-80rem)/2)] top-[495vh] lg:top-[310vh]"
     >
       <div className="flex flex-col gap-6">
         {projects.map((project, index) => (
           <div
             key={project.title}
-            className={`flex ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}
+            className={`flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
           >
             <AnimatedSection
               direction={index % 2 === 0 ? "right" : "left"}

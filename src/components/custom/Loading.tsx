@@ -36,7 +36,7 @@ export const Loading = ({ onComplete }: LoadingProps) => {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#061530] transition-opacity duration-600 ${
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-night-sky transition-opacity duration-600 ${
         fadeOut ? "opacity-0" : "opacity-100"
       }`}
     >
