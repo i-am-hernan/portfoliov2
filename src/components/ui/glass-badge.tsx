@@ -11,10 +11,12 @@ const GlassBadge = React.forwardRef<HTMLSpanElement, GlassBadgeProps>(
       <span
         ref={ref}
         className={cn(
-          "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium",
-          "bg-white/15 border border-white/20",
-          "text-white/90 hover:bg-white/25",
-          "transition-colors duration-200",
+          "inline-flex items-center px-3 py-1 rounded-lg text-xs font-medium tracking-wide",
+          "bg-white/[0.08] border border-white/[0.12]",
+          "text-white/80 hover:bg-white/[0.15] hover:text-white hover:border-white/[0.22]",
+          "shadow-[0_2px_8px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.06)]",
+          "transition-all duration-300",
+          "font-[family-name:var(--font-geist-mono)] uppercase tracking-widest text-[10px]",
           className
         )}
         {...props}

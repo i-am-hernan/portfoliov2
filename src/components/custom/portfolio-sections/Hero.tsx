@@ -7,12 +7,16 @@ export const Hero = memo(() => {
       style={{ pointerEvents: 'auto' }}
     >
       <span>
-        <h1 className="text-[8vw] leading-none text-white drop-shadow-lg">
+        <p className="text-sm tracking-[0.4em] uppercase text-white/50 font-[family-name:var(--font-geist-mono)] mb-4">
+          Software Engineer
+        </p>
+        <h1 className="text-[9vw] leading-[0.9] text-white font-[family-name:var(--font-display)] font-light text-glow">
           I am Hernan
         </h1>
-        <h2 className="text-[1.3vw] text-white/80 drop-shadow-md mt-2">
+        <h2 className="text-[1.4vw] text-white/60 mt-4 font-[family-name:var(--font-display)] font-light tracking-wide">
           I bridge business and engineering.
         </h2>
+        <div className="mt-6 mx-auto w-12 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
       </span>
     </div>
   );

@@ -7,30 +7,34 @@ import * as THREE from 'three'
 export const GoldenGateBridge = () => {
   const gltf = useLoader(GLTFLoader, 'models/golden-gate-bridge/scene.gltf')
 
-  // Bridge: Vibrant International Orange for daytime
+  // Bridge: Dark crimson with subtle emissive glow
   const bridgeMaterial = useMemo(() => {
     return new THREE.MeshStandardMaterial({
-      color: new THREE.Color('#C84032'), // Bright International Orange
-      metalness: 0.4,
-      roughness: 0.5,
+      color: new THREE.Color('#8B2020'),
+      metalness: 0.6,
+      roughness: 0.35,
+      emissive: new THREE.Color('#3a0a0a'),
+      emissiveIntensity: 0.05,
     })
   }, [])
 
-  // Terrain: Natural earth tones for daytime
+  // Terrain: Near-black silhouette
   const terrainMaterial = useMemo(() => {
     return new THREE.MeshStandardMaterial({
-      color: new THREE.Color('#5D4E37'), // Brown earth/hills
+      color: new THREE.Color('#1a1812'),
       metalness: 0.1,
-      roughness: 0.85,
+      roughness: 0.95,
     })
   }, [])
 
-  // Water: Bright bay water for daytime
+  // Water: Deep navy with mirror-like reflections
   const waterMaterial = useMemo(() => {
     return new THREE.MeshStandardMaterial({
-      color: new THREE.Color('#2E6B8A'), // Bright blue bay water
-      metalness: 0.2,
-      roughness: 0.4,
+      color: new THREE.Color('#0a1a2e'),
+      metalness: 0.7,
+      roughness: 0.15,
+      emissive: new THREE.Color('#051225'),
+      emissiveIntensity: 0.08,
     })
   }, [])
 

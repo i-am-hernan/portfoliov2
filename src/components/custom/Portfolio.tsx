@@ -1,5 +1,5 @@
 "use client";
-import { About, Contact, Hero, Projects } from '@/components/custom/portfolio-sections';
+import { About, Contact, Education, Hero, Projects } from '@/components/custom/portfolio-sections';
 import { NavigateBar } from '@/components/custom/nav/NavigateBar';
 import { Scroll, ScrollControls, useScroll, Preload } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
@@ -7,6 +7,18 @@ import { GoldenGateBridge } from '@/components/three/scenes/golden-gate-bridge/G
 import { SanFranciscoSky } from '../three/scenes/sky';
 import { ScrollProgressBar } from './ScrollProgress';
 import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing';
+import { useState, useEffect } from 'react';
+
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+  return isMobile;
+};
 
 const ScrollingCamera = () => {
   const scroll = useScroll();
@@ -61,6 +73,7 @@ const HtmlContainer = () => {
     <Scroll html style={{ width: '100%' }}>
       <Hero />
       <About />
+      <Education />
       <Projects />
       <Contact />
     </Scroll>
@@ -68,6 +81,7 @@ const HtmlContainer = () => {
 }
 
 export const Portfolio = () => {
+  const isMobile = useIsMobile();
   return (
     <>
       <ScrollProgressBar />
@@ -78,45 +92,59 @@ export const Portfolio = () => {
         dpr={[1, 1.5]}
         style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}
       >
-        <ScrollControls pages={4.5} damping={0.1}>
-          {/* Daytime lighting setup */}
-          <ambientLight intensity={0.6} color="#ffffff" />
-          {/* Sunlight */}
+        <ScrollControls pages={isMobile ? 8.5 : 4.2} damping={0.1}>
+          {/* Nighttime lighting setup */}
+
+          {/* Moonlight */}
           <directionalLight
-            position={[100, 150, 50]}
-            intensity={1.5}
-            color="#fff5e6"
-            castShadow
+            position={[80, 120, 60]}
+            intensity={0.4}
+            color="#b4c6e0"
           />
-          {/* Sky light from above */}
+          {/* Deep blue ambient */}
+          <ambientLight intensity={0.15} color="#1a2744" />
+          {/* Hemisphere: night sky + dark ground */}
           <hemisphereLight
-            color="#87CEEB"
-            groundColor="#8B7355"
-            intensity={0.8}
-          />
-          {/* Fill light */}
-          <directionalLight
-            position={[-50, 30, -30]}
+            color="#0d1b3e"
+            groundColor="#0a0a12"
             intensity={0.3}
-            color="#b4d4e8"
           />
+          {/* City glow fill from behind */}
+          <directionalLight
+            position={[-80, 10, -60]}
+            intensity={0.08}
+            color="#ff9944"
+          />
+
+          {/* Tower-top aviation warning lights */}
+          <pointLight position={[0, 67, -18]} intensity={2.0} color="#ff6622" distance={120} />
+          <pointLight position={[0, 67, 18]} intensity={2.0} color="#ff6622" distance={120} />
+
+          {/* Cable point lights */}
+          <pointLight position={[0, 45, -9]} intensity={0.6} color="#ffaa44" distance={60} />
+          <pointLight position={[0, 45, 9]} intensity={0.6} color="#ffaa44" distance={60} />
+          <pointLight position={[0, 55, 0]} intensity={0.6} color="#ffaa44" distance={60} />
+
+          {/* Linear fog */}
+          <fog attach="fog" args={['#0a1628', 100, 600]} />
+
           <GoldenGateBridge />
           <SanFranciscoSky />
           <ScrollingCamera />
           <HtmlContainer />
           <Preload all />
-          {/* Post-processing for cinematic look */}
+          {/* Post-processing for cinematic nighttime look */}
           <EffectComposer>
             <Bloom
-              intensity={0.2}
-              luminanceThreshold={0.9}
-              luminanceSmoothing={0.9}
+              intensity={0.8}
+              luminanceThreshold={0.4}
+              luminanceSmoothing={0.7}
+              mipmapBlur
             />
-            <Vignette darkness={0.3} offset={0.5} />
+            <Vignette darkness={0.6} offset={0.4} />
           </EffectComposer>
         </ScrollControls>
       </Canvas>
     </>
   )
 }
-

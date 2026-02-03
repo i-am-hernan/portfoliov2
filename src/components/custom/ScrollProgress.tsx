@@ -71,10 +71,10 @@ export const ScrollProgressBar = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[200] h-1 bg-white/10">
+    <div className="fixed top-0 left-0 right-0 z-[200] h-[2px] bg-white/[0.05]">
       <div
-        className="h-full bg-gradient-to-r from-white/50 via-white/80 to-white/50"
-        style={{ width: `${progress}%` }}
+        className="h-full bg-gradient-to-r from-white/30 via-white/60 to-white/30 shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+        style={{ width: `${progress}%`, transition: 'width 0.1s ease-out' }}
       />
     </div>
   );
