@@ -28,6 +28,9 @@ export const metadata: Metadata = {
   title: "Hernan Chalco — Senior Implementation Engineer",
   description:
     "Senior Implementation Engineer at Adyen. Building developer tooling for eCommerce payment integrations. Projects: checkoutlab.dev, sdkexplorer.com.",
+  icons: {
+    icon: "/icons/golden-gate-bridge-2.svg",
+  },
 };
 
 export default function RootLayout({
