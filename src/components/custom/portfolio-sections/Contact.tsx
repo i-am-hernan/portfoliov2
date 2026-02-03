@@ -1,20 +1,17 @@
 import { memo } from "react"
 import { GlassCard } from "@/components/ui/glass-card"
 import { AnimatedSection } from "@/components/custom/AnimatedSection"
+import { SectionWrapper } from "./SectionWrapper"
 import { Button } from "@/components/ui/button"
 import { Mail } from "lucide-react"
 
 export const Contact = memo(() => {
   return (
-    <div
-      className="absolute left-1/2 -translate-x-1/2 top-[750vh] lg:top-[330vh] w-[calc(100vw-3rem)] lg:w-[40vw] text-center"
-      style={{ pointerEvents: 'auto' }}
+    <SectionWrapper
+      className="absolute left-1/2 -translate-x-1/2 top-[875vh] lg:top-[465vh] w-[calc(100vw-3rem)] lg:w-[40vw] text-center"
     >
       <AnimatedSection direction="up">
         <GlassCard variant="prominent">
-          <div className="flex justify-center mb-2">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-          </div>
           <h2 className="m-0 text-2xl font-[family-name:var(--font-display)] font-semibold text-white tracking-tight">
             Let&apos;s talk
           </h2>
@@ -32,7 +29,7 @@ export const Contact = memo(() => {
           </Button>
         </GlassCard>
       </AnimatedSection>
-    </div>
+    </SectionWrapper>
   );
 });
 

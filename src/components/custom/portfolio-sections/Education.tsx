@@ -1,13 +1,13 @@
 import { memo } from "react"
 import { GlassCard } from "@/components/ui/glass-card"
 import { AnimatedSection } from "@/components/custom/AnimatedSection"
+import { SectionWrapper } from "./SectionWrapper"
 import Image from "next/image"
 
 export const Education = memo(() => {
   return (
-    <div
-      className="absolute left-6 lg:left-[calc((100vw-80rem)/2)] top-[620vh] lg:top-[270vh] w-[calc(100vw-3rem)] lg:w-[45vw]"
-      style={{ pointerEvents: 'auto' }}
+    <SectionWrapper
+      className="absolute left-6 lg:left-[calc((100vw-80rem)/2)] top-[745vh] lg:top-[385vh] w-[calc(100vw-3rem)] lg:w-[45vw]"
     >
       <AnimatedSection direction="left">
         <GlassCard className="p-0 overflow-hidden">
@@ -51,7 +51,7 @@ export const Education = memo(() => {
           </div>
         </GlassCard>
       </AnimatedSection>
-    </div>
+    </SectionWrapper>
   );
 });
 

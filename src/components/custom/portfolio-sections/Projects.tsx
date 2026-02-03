@@ -1,6 +1,7 @@
 import { memo } from "react"
 import { ProjectCard } from "./ProjectCard"
 import { AnimatedSection } from "@/components/custom/AnimatedSection"
+import { SectionWrapper } from "./SectionWrapper"
 
 const projects = [
   {
@@ -28,18 +29,9 @@ const projects = [
 
 export const Projects = memo(() => {
   return (
-    <div
-      className="absolute left-6 right-6 lg:left-[calc((100vw-80rem)/2)] lg:right-[calc((100vw-80rem)/2)] top-[280vh] lg:top-[160vh]"
-      style={{ pointerEvents: 'auto' }}
+    <SectionWrapper
+      className="absolute left-6 right-6 lg:left-[calc((100vw-80rem)/2)] lg:right-[calc((100vw-80rem)/2)] top-[345vh] lg:top-[225vh]"
     >
-      <AnimatedSection direction="right">
-        <div className="flex items-center gap-3 mb-8 justify-end">
-          <div className="w-1 h-6 rounded-full bg-gradient-to-b from-white/60 to-white/10" />
-          <h2 className="m-0 text-2xl font-[family-name:var(--font-display)] font-semibold text-white tracking-tight">
-            Projects
-          </h2>
-        </div>
-      </AnimatedSection>
       <div className="flex flex-col gap-6">
         {projects.map((project, index) => (
           <div
@@ -56,7 +48,7 @@ export const Projects = memo(() => {
           </div>
         ))}
       </div>
-    </div>
+    </SectionWrapper>
   );
 });
 
